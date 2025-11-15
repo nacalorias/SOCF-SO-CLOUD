@@ -3,7 +3,7 @@ import os
 import platform
 import psutil
 
-xapp = Flask(__name__)
+app = Flask(__name__)
 
 def xget_system_info():
     xprocess = psutil.Process(os.getpid())
@@ -29,7 +29,7 @@ def xget_system_info():
         "sistema_operacional": xos_info
     }
 
-@xapp.route('/')
+@app.route('/')
 def xindex():
     xinfo = xget_system_info()
     return f"""
@@ -103,13 +103,13 @@ def xindex():
     </html>
     """
 
-@xapp.route('/info')
+@app.route('/info')
 def xinfo_route():
     return jsonify({
         "nome": "Ana Carolina Afonso Meiado, Ana Carolina Curi de Sales"
     })
 
-@xapp.route('/metricas')
+@app.route('/metricas')
 def xmetricas():
     xinfo = xget_system_info()
     return jsonify({
@@ -120,6 +120,6 @@ def xmetricas():
     })
 
 if __name__ == '__main__':
-    xapp.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 APP = xapp
