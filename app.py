@@ -22,7 +22,7 @@ def xget_system_info():
             pass
     
     return {
-        "nome": "Estudante da Equipe",
+        "nome": "Ana Carolina Afonso Meiado, Ana Carolina Curi de Sales",
         "pid": os.getpid(),
         "memoria_mb": round(xmemory_mb, 2),
         "cpu_percent": round(xcpu_percent, 2),
@@ -106,7 +106,7 @@ def xindex():
 @xapp.route('/info')
 def xinfo_route():
     return jsonify({
-        "nome": "Estudante da Equipe"
+        "nome": "Ana Carolina Afonso Meiado, Ana Carolina Curi de Sales"
     })
 
 @xapp.route('/metricas')
